@@ -1,4 +1,4 @@
-module github.com/reujab/wallpaper
+module github.com/edwindvinas/wallpaper
 
 go 1.16
 
