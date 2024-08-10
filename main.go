@@ -71,3 +71,15 @@ func SetFromURL(url string) error {
 
 	return SetFromFile(file)
 }
+func CheckAndSetFromFile(file string) error {
+        fileInfo, err := os.Stat(file)
+        if err != nil {
+                return err // Handle error if file doesn't exist or is inaccessible
+        }
+
+        if fileInfo.Size() > 0 {
+                return SetFromFile(file)
+        } else {
+                return fmt.Errorf("file %s is empty", file) // Or handle empty file as needed
+        }
+}
